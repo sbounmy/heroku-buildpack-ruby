@@ -2,8 +2,7 @@
 
 require 'pathname'
 
-# puts ARGV.inspect
-if true
+if Pathname.new(ARGV.first).join(env('APP_SUBDIR') || '').join("Gemfile").exist?
   puts "Ruby"
   exit 0
 else
