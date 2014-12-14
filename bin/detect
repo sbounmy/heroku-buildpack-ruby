@@ -2,6 +2,7 @@
 
 require 'pathname'
 
+puts ARGV.inspect
 if Pathname.new(ARGV.first).join("Gemfile").exist?
   puts "Ruby"
   exit 0
