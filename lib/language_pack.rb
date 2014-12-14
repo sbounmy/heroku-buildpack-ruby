@@ -12,7 +12,7 @@ module LanguagePack
   def self.detect(*args)
     Instrument.instrument 'detect' do
       Dir.chdir File.join(args.first, ShellHelpers.user_env_hash['APP_SUBDIR'] || '')
-
+      puts "Detecting in #{File.join(args.first, ShellHelpers.user_env_hash['APP_SUBDIR'] || '').inspect} : #{Dir.pwd}"
       pack = [ NoLockfile, Rails41, Rails4, Rails3, Rails2, Rack, Ruby ].detect do |klass|
         klass.use?
       end
